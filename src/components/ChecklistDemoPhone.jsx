@@ -252,7 +252,9 @@ export default function ChecklistDemoPhone({ children }) {
           </div>
 
           {/* Scrollable Content */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-2 pb-20 scrollbar-hide">
+          <div
+            key={currentOption}
+            className="flex-1 overflow-y-auto p-4 space-y-2 pb-20 scrollbar-hide">
             {DemoChecklistsData[currentOption] ? (
               DemoChecklistsData[currentOption].map((item, index) => {
                 const Component = COMPONENT_MAP[item.type];
@@ -309,7 +311,7 @@ export default function ChecklistDemoPhone({ children }) {
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-500 italic text-center mt-8">
+                    <p className="text-xs text-white italic text-center mt-8">
                       "Digitaliza tus operaciones en minutos."
                     </p>
                   </div>
@@ -340,9 +342,6 @@ export default function ChecklistDemoPhone({ children }) {
                         markerEnd="url(#arrowhead)"
                       />
                     </svg>
-                    <div className="absolute -top-4 right-0 bg-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded shadow-lg transform rotate-6 animate-pulse">
-                      ¡Selecciona aquí!
-                    </div>
                   </div>
                 </div>
               </div>
@@ -350,15 +349,17 @@ export default function ChecklistDemoPhone({ children }) {
           </div>
 
           {/* Footer / Floating Button with SafeArea Gradient emulation */}
-          <div className="absolute bottom-0 left-0 right-0 px-4 pb-8 pt-4 bg-linear-to-t from-slate-50 via-slate-50 to-transparent dark:from-slate-900 dark:via-slate-900 z-30">
-            <AnimateItem delay={1500}>
-              <button
-                onClick={handleFinish}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
-                <span>Finalizar Checklist</span>
-              </button>
-            </AnimateItem>
-          </div>
+          {DemoChecklistsData[currentOption] && (
+            <div className="absolute bottom-0 left-0 right-0 px-4 pb-8 pt-4 bg-linear-to-t from-slate-50 via-slate-50 to-transparent dark:from-slate-900 dark:via-slate-900 z-30">
+              <AnimateItem delay={1500}>
+                <button
+                  onClick={handleFinish}
+                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl shadow-lg transition-transform active:scale-95 flex items-center justify-center gap-2">
+                  <span>Finalizar Checklist</span>
+                </button>
+              </AnimateItem>
+            </div>
+          )}
 
           {/* Success Overlay */}
           {isFinished && (

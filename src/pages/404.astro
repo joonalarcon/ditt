@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { DittoLogo } from "../components/ui/DittoLogo.jsx";
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="404: Página no encontrada">
+  <main
+    class="flex flex-col items-center justify-center min-h-[70vh] text-center px-4 relative overflow-hidden">
+    <div
+      class="relative w-80 h-80 md:w-96 md:h-96 mx-auto mb-6 flex items-center justify-center group cursor-pointer">
+      {/* Massive Ditto */}
+      {/* Massive Ditto */}
+      <DittoLogo
+        client:visible
+        className="w-full h-full"
+        color="bg-purple-600 shadow-[0_0_50px_rgba(147,51,234,0.3)]"
+        showFace={false}
+      />
+
+      {/* 404 Text Inside */}
+      <div
+        class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+        <h1
+          class="text-[8rem] md:text-[10rem] font-black text-white/90 tracking-tighter rotate-[-5deg] animate-pulse drop-shadow-xl">
+          404
+        </h1>
+      </div>
+
+      {/* Floating particles/question marks */}
+      <div
+        class="absolute -top-10 -right-10 text-6xl font-bold text-slate-700 animate-[bounce_3s_infinite] opacity-50">
+        ?
+      </div>
+      <div
+        class="absolute -bottom-5 -left-10 text-4xl font-bold text-slate-700 animate-[bounce_4s_infinite] opacity-30">
+        ?
+      </div>
+    </div>
+
+    <p class="text-3xl font-bold text-white mb-4 relative z-10">
+      ¡Esta página no existe!
+    </p>
+    <p class="text-slate-400 max-w-md mb-10">
+      Parece que lo que buscas no existe o fue movido. No te preocupes, Ditto te
+      ayuda a volver.
+    </p>
+
+    <a
+      href={baseUrl}
+      class="mt-10 bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-3 px-8 rounded-full transition-all hover:scale-105 shadow-[0_0_20px_rgba(124,58,237,0.5)] flex items-center gap-2">
+      <span>Volver al Inicio</span>
+    </a>
+  </main>
+</Layout>

@@ -11,6 +11,8 @@ import {
 import { DittoLogo } from "./ui/DittoLogo";
 
 export const Footer = () => {
+  const baseUrl = import.meta.env.BASE_URL;
+
   return (
     <footer className="bg-slate-900 border-t border-slate-800 text-slate-400 py-12 mt-auto">
       <div className="container mx-auto px-4">
@@ -32,27 +34,29 @@ export const Footer = () => {
             <h3 className="text-white font-bold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="hover:text-blue-400 transition-colors">
+                <a
+                  href={baseUrl}
+                  className="hover:text-blue-400 transition-colors">
                   Inicio
                 </a>
               </li>
               <li>
                 <a
-                  href="/sobreNosotros"
+                  href={`${baseUrl}sobreNosotros/`}
                   className="hover:text-blue-400 transition-colors">
                   Sobre Nosotros
                 </a>
               </li>
               <li>
                 <a
-                  href="/precios"
+                  href={`${baseUrl}precios/`}
                   className="hover:text-blue-400 transition-colors">
                   Precios
                 </a>
               </li>
               <li>
                 <a
-                  href="/contacto"
+                  href={`${baseUrl}contacto/`}
                   className="hover:text-blue-400 transition-colors">
                   Contacto
                 </a>
