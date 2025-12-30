@@ -278,7 +278,7 @@ export default function ChecklistDemoPhone({ children }) {
             ) : (
               <div className="flex flex-col items-center justify-center h-full p-2 py-10 animate-in fade-in zoom-in duration-500">
                 {/* PDF Document Container (Dark Mode) */}
-                <div className="bg-slate-800 w-full rounded-sm shadow-2xl p-6 relative border border-slate-700 transform -rotate-1 min-h-[300px]">
+                <div className="bg-slate-800 w-full rounded-sm shadow-2xl p-4 relative border border-slate-700 transform -rotate-1 min-h-[300px]">
                   {/* PDF Header */}
                   <div className="flex justify-between items-center border-b border-slate-700 pb-4 mb-4">
                     <div className="flex items-center gap-2">
@@ -302,9 +302,9 @@ export default function ChecklistDemoPhone({ children }) {
                       </p>
                     </div>
 
-                    <div className="bg-blue-900/30 p-4 rounded text-sm text-blue-200 border border-blue-500/30 flex gap-3">
-                      <div className="text-xl">👆</div>
-                      <div>
+                    <div className="bg-blue-900/30 p-3 rounded text-sm text-blue-200 border border-blue-500/30 flex items-start gap-3">
+                      <div className="text-xl shrink-0">👆</div>
+                      <div className="min-w-0">
                         <strong>Para comenzar:</strong>
                         <br />
                         Toca el menú desplegable que está arriba del teléfono.
