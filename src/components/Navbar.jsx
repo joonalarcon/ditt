@@ -54,15 +54,15 @@ export const Navbar = () => {
             <Icons.Home size={constants.iconSize} />
             <p className="text-lg">Inicio</p>
           </a>
-          <a href={`${baseUrl}sobreNosotros`} className={constants.navTab}>
+          <a href={`${baseUrl}sobreNosotros/`} className={constants.navTab}>
             <Icons.Users size={constants.iconSize} />
             <p className="text-lg">Nosotros</p>
           </a>
-          <a href={`${baseUrl}contacto`} className={constants.navTab}>
+          <a href={`${baseUrl}contacto/`} className={constants.navTab}>
             <Icons.Contact size={constants.iconSize} />
             <p className="text-lg">Contacto</p>
           </a>
-          <a href={`${baseUrl}precios`} className={constants.navButtonPrice}>
+          <a href={`${baseUrl}precios/`} className={constants.navButtonPrice}>
             <Icons.Price size={constants.iconSize} />
             <p className="text-lg">Precios</p>
           </a>
@@ -91,21 +91,21 @@ export const Navbar = () => {
             Inicio
           </a>
           <a
-            href={`${baseUrl}sobreNosotros`}
+            href={`${baseUrl}sobreNosotros/`}
             className={constants.navTab}
             onClick={() => setIsOpen(false)}>
             <Icons.Users size={constants.iconSize} />
             Sobre Nosotros
           </a>
           <a
-            href={`${baseUrl}contacto`}
+            href={`${baseUrl}contacto/`}
             className={constants.navTab}
             onClick={() => setIsOpen(false)}>
             <Icons.Contact size={constants.iconSize} />
             Contacto
           </a>
           <a
-            href={`${baseUrl}precios`}
+            href={`${baseUrl}precios/`}
             className={constants.navButtonPrice}
             onClick={() => setIsOpen(false)}>
             <Icons.Price size={constants.iconSize} />
