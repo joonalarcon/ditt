@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function ContactSection() {
   return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden min-h-screen">
+    <section className="py-8 md:py-24 bg-slate-900 relative overflow-hidden min-h-screen">
       {/* Background Blobs */}
       <div className="absolute top-0 right-1/2 translate-x-1/2 w-full h-[500px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 

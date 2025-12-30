@@ -54,7 +54,7 @@ export default function TypewriterEffect({
 
   return (
     <span className={`inline-flex items-center ${className}`}>
-      <span>{currentText}</span>
+      <span>{currentText || "\u200B"}</span>
       <span className="ml-1 w-[3px] h-[1em] bg-blue-500 animate-blink"></span>
       <style>{`
         @keyframes blink {

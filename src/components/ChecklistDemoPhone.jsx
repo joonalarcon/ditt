@@ -317,7 +317,7 @@ export default function ChecklistDemoPhone({ children }) {
                   </div>
 
                   {/* Drawn Arrow pointing UP to the dropdown */}
-                  <div className="absolute -top-16 -right-2 w-32 h-32 z-50 pointer-events-none">
+                  <div className="absolute -top-8 md:-top-16 -right-2 w-32 h-32 z-50 pointer-events-none">
                     <svg
                       viewBox="0 0 100 100"
                       className="w-full h-full text-blue-400 drop-shadow-md animate-bounce">
