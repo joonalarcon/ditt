@@ -6,6 +6,7 @@ import { FaMoneyBill1Wave } from "react-icons/fa6";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const baseUrl = import.meta.env.BASE_URL;
 
   // Constante de Iconos
   const Icons = {
@@ -40,24 +41,28 @@ export const Navbar = () => {
       <div className={constants.navContainer}>
         {/* Logo Section */}
         <div className={constants.logo}>
-          <img className={constants.logoImg} src="/ditto.png" alt="Logo" />
+          <img
+            className={constants.logoImg}
+            src={`${baseUrl}ditto.png`}
+            alt="Logo"
+          />
           <h1 className={constants.logoText}>Ditt</h1>
         </div>
 
         <div className={constants.navTabsDesktop}>
-          <a href="/" className={constants.navTab}>
+          <a href={baseUrl} className={constants.navTab}>
             <Icons.Home size={constants.iconSize} />
             <p className="text-lg">Inicio</p>
           </a>
-          <a href="/sobreNosotros" className={constants.navTab}>
+          <a href={`${baseUrl}sobreNosotros`} className={constants.navTab}>
             <Icons.Users size={constants.iconSize} />
             <p className="text-lg">Nosotros</p>
           </a>
-          <a href="/contacto" className={constants.navTab}>
+          <a href={`${baseUrl}contacto`} className={constants.navTab}>
             <Icons.Contact size={constants.iconSize} />
             <p className="text-lg">Contacto</p>
           </a>
-          <a href="/precios" className={constants.navButtonPrice}>
+          <a href={`${baseUrl}precios`} className={constants.navButtonPrice}>
             <Icons.Price size={constants.iconSize} />
             <p className="text-lg">Precios</p>
           </a>
@@ -79,28 +84,28 @@ export const Navbar = () => {
       {isOpen && (
         <div className="w-full bg-slate-900 border-t border-slate-800 flex flex-col items-center py-6 space-y-6 md:hidden animate-in slide-in-from-top-2 duration-200">
           <a
-            href="/"
+            href={baseUrl}
             className={constants.navTab}
             onClick={() => setIsOpen(false)}>
             <Icons.Home size={constants.iconSize} />
             Inicio
           </a>
           <a
-            href="/sobreNosotros"
+            href={`${baseUrl}sobreNosotros`}
             className={constants.navTab}
             onClick={() => setIsOpen(false)}>
             <Icons.Users size={constants.iconSize} />
             Sobre Nosotros
           </a>
           <a
-            href="/contacto"
+            href={`${baseUrl}contacto`}
             className={constants.navTab}
             onClick={() => setIsOpen(false)}>
             <Icons.Contact size={constants.iconSize} />
             Contacto
           </a>
           <a
-            href="/precios"
+            href={`${baseUrl}precios`}
             className={constants.navButtonPrice}
             onClick={() => setIsOpen(false)}>
             <Icons.Price size={constants.iconSize} />
