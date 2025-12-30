@@ -55,6 +55,7 @@ import {
   AlertTriangle,
   Car,
   Laptop,
+  FileText,
 } from "lucide-react";
 
 const COMPONENT_MAP = {
@@ -159,11 +160,11 @@ export default function ChecklistDemoPhone({ children }) {
 
   return (
     <div className="lg:w-1/3 relative z-10 -mt-8">
-      <div className="flex justify-center mb-4 relative z-50">
-        <div className="relative">
+      <div className="flex justify-center mb-4 relative z-50 px-4 w-full">
+        <div className="relative w-full max-w-[320px]">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="flex items-center justify-between gap-3 w-80 px-6 py-4 bg-size-200 bg-linear-to-r from-slate-900 via-blue-900/40 to-slate-900 backdrop-blur-xl border border-blue-400/50 rounded-2xl text-white font-bold transition-all duration-300 group cursor-pointer relative overflow-hidden"
+            className="flex items-center justify-between gap-3 w-full px-6 py-4 bg-size-200 bg-linear-to-r from-slate-900 via-blue-900/40 to-slate-900 backdrop-blur-xl border border-blue-400/50 rounded-2xl text-white font-bold transition-all duration-300 group cursor-pointer relative overflow-hidden"
             style={{
               animation:
                 "radiate 2s infinite ease-in-out, flow 3s infinite linear",
@@ -217,9 +218,10 @@ export default function ChecklistDemoPhone({ children }) {
           </div>
         </div>
       </div>
+
       {children}
       {/* Phone Border */}
-      <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-14 rounded-[2.5rem] h-[800px] w-[400px] shadow-2xl flex flex-col shadow-blue-500/20 z-20">
+      <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-14 rounded-[2.5rem] h-[650px] md:h-[800px] w-full max-w-[360px] md:max-w-[400px] shadow-2xl flex flex-col shadow-blue-500/20 z-20">
         {/* Screen */}
         <div className="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
         <div className="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
@@ -251,29 +253,100 @@ export default function ChecklistDemoPhone({ children }) {
 
           {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto p-4 space-y-2 pb-20 scrollbar-hide">
-            {(
-              DemoChecklistsData[currentOption] ||
-              DemoChecklistsData["Checklist Vehicular"] ||
-              []
-            ).map((item, index) => {
-              const Component = COMPONENT_MAP[item.type];
-              const Icon = item.icon ? ICON_MAP[item.icon] : undefined;
-              if (!Component) return null;
-              return (
-                <AnimateItem key={index} delay={index * 100}>
-                  <Component
-                    {...item}
-                    icon={Icon}
-                    value={
-                      formData[item.title] !== undefined
-                        ? formData[item.title]
-                        : item.value || ""
-                    }
-                    onChange={(val) => handleChange(item.title, val)}
-                  />
-                </AnimateItem>
-              );
-            })}
+            {DemoChecklistsData[currentOption] ? (
+              DemoChecklistsData[currentOption].map((item, index) => {
+                const Component = COMPONENT_MAP[item.type];
+                const Icon = item.icon ? ICON_MAP[item.icon] : undefined;
+                if (!Component) return null;
+                return (
+                  <AnimateItem key={index} delay={index * 100}>
+                    <Component
+                      {...item}
+                      icon={Icon}
+                      value={
+                        formData[item.title] !== undefined
+                          ? formData[item.title]
+                          : item.value || ""
+                      }
+                      onChange={(val) => handleChange(item.title, val)}
+                    />
+                  </AnimateItem>
+                );
+              })
+            ) : (
+              <div className="flex flex-col items-center justify-center h-full p-2 py-10 animate-in fade-in zoom-in duration-500">
+                {/* PDF Document Container (Dark Mode) */}
+                <div className="bg-slate-800 w-full rounded-sm shadow-2xl p-6 relative border border-slate-700 transform -rotate-1 min-h-[300px]">
+                  {/* PDF Header */}
+                  <div className="flex justify-between items-center border-b border-slate-700 pb-4 mb-4">
+                    <div className="flex items-center gap-2">
+                      <FileText className="text-red-400" size={20} />
+                      <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                        instrucciones.pdf
+                      </span>
+                    </div>
+                    <div className="text-[10px] text-slate-500">1 de 1</div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-6 font-serif text-slate-200">
+                    <div>
+                      <h2 className="text-xl font-bold text-white border-l-4 border-blue-500 pl-3 mb-2">
+                        Bienvenido a la Demo
+                      </h2>
+                      <p className="text-sm leading-relaxed text-slate-400">
+                        Estás viendo una simulación en tiempo real de nuestra
+                        App.
+                      </p>
+                    </div>
+
+                    <div className="bg-blue-900/30 p-4 rounded text-sm text-blue-200 border border-blue-500/30 flex gap-3">
+                      <div className="text-xl">👆</div>
+                      <div>
+                        <strong>Para comenzar:</strong>
+                        <br />
+                        Toca el menú desplegable que está arriba del teléfono.
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-slate-500 italic text-center mt-8">
+                      "Digitaliza tus operaciones en minutos."
+                    </p>
+                  </div>
+
+                  {/* Drawn Arrow pointing UP to the dropdown */}
+                  <div className="absolute -top-16 -right-2 w-32 h-32 z-50 pointer-events-none">
+                    <svg
+                      viewBox="0 0 100 100"
+                      className="w-full h-full text-blue-400 drop-shadow-md animate-bounce">
+                      <defs>
+                        <marker
+                          id="arrowhead"
+                          markerWidth="6"
+                          markerHeight="6"
+                          refX="5"
+                          refY="3"
+                          orient="auto">
+                          <path d="M0,0 L6,3 L0,6" fill="currentColor" />
+                        </marker>
+                      </defs>
+                      {/* Curved arrow pointing up and leftish towards the center/dropdown */}
+                      <path
+                        d="M 30 80 Q 80 60 50 10"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        markerEnd="url(#arrowhead)"
+                      />
+                    </svg>
+                    <div className="absolute -top-4 right-0 bg-blue-500 text-white text-[10px] font-bold px-3 py-1 rounded shadow-lg transform rotate-6 animate-pulse">
+                      ¡Selecciona aquí!
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Footer / Floating Button with SafeArea Gradient emulation */}

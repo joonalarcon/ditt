@@ -4,6 +4,8 @@ import { FaUsers } from "react-icons/fa";
 import { MdOutlineContactPhone } from "react-icons/md";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 
+import { DittoLogo } from "./ui/DittoLogo";
+
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const baseUrl = import.meta.env.BASE_URL;
@@ -24,9 +26,8 @@ export const Navbar = () => {
       isOpen ? "rounded-b-none" : ""
     }`,
     navContainer: "flex items-center justify-between p-4",
-    logo: "flex items-center",
-    logoImg: "w-10 h-10 transition-all duration-300 hover:scale-110",
-    logoText: "text-2xl font-bold ml-3 text-white tracking-tight",
+    logo: "flex items-center gap-2", // Added gap-2 for spacing
+    logoText: "text-2xl font-bold ml-1 text-white tracking-tight", // Adjusted ml-1
     navTabsDesktop: "hidden md:flex items-center gap-8 pr-4",
     navTab:
       "text-slate-300 hover:text-white font-medium transition-all hover:scale-105 flex items-center gap-2 text-sm uppercase tracking-wide",
@@ -41,11 +42,7 @@ export const Navbar = () => {
       <div className={constants.navContainer}>
         {/* Logo Section */}
         <div className={constants.logo}>
-          <img
-            className={constants.logoImg}
-            src={`${baseUrl}ditto.png`}
-            alt="Logo"
-          />
+          <DittoLogo className="w-10 h-10 hover:scale-110 transition-transform cursor-pointer" />
           <h1 className={constants.logoText}>Ditt</h1>
         </div>
 

@@ -8,7 +8,7 @@ export default function PricingSection() {
     {
       name: "Starter / Freelance",
       description: "Para profesionales independientes que buscan orden.",
-      price: isAnnual ? "0.8" : "1.0",
+      price: isAnnual ? "0.4" : "0.5",
       currency: "UF",
       period: "/ mes",
       features: [
@@ -30,7 +30,7 @@ export default function PricingSection() {
     {
       name: "Pyme / Equipo",
       description: "Para empresas en crecimiento con equipos en terreno.",
-      price: isAnnual ? "1.6" : "2.0",
+      price: isAnnual ? "0.8" : "1.2",
       currency: "UF",
       period: "/ mes",
       features: [

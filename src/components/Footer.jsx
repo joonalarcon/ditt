@@ -8,6 +8,8 @@ import {
   Phone,
 } from "lucide-react";
 
+import { DittoLogo } from "./ui/DittoLogo";
+
 export const Footer = () => {
   return (
     <footer className="bg-slate-900 border-t border-slate-800 text-slate-400 py-12 mt-auto">
@@ -16,7 +18,7 @@ export const Footer = () => {
           {/* Columna 1: Logo y descripción */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <img src="/ditto.png" alt="Ditt Logo" className="w-10 h-10" />
+              <DittoLogo className="w-10 h-10" />
               <span className="text-2xl font-bold text-white">Ditt</span>
             </div>
             <p className="text-sm">

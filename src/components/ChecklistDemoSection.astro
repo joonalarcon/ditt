@@ -2,6 +2,8 @@
 import TypewriterEffect from "./ui/TypewriterEffect.jsx";
 import DemoInfoChart from "./DemoInfoChart.jsx";
 import ChecklistDemoPhone from "./ChecklistDemoPhone.jsx";
+import DemoPills from "./DemoPills.jsx";
+import { DittoLogo } from "./ui/DittoLogo.jsx";
 ---
 
 <section class="py-10 bg-slate-900 overflow-hidden relative">
@@ -94,8 +96,25 @@ import ChecklistDemoPhone from "./ChecklistDemoPhone.jsx";
     <!-- INFO SECTION (Converted to Astro + Islands) -->
     <div class="lg:w-1/2 pt-10 relative z-20">
       <h2
-        class="text-start mt-10 text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-emerald-400 mb-4">
-        Controla tu negocio con Ditt
+        class="mt-10 mb-6 text-3xl md:text-5xl font-bold flex flex-wrap items-center gap-x-3 gap-y-3 justify-center lg:justify-start">
+        <span
+          class="bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-emerald-400">
+          Controla tu negocio con
+        </span>
+
+        <span
+          class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700/50 rounded-full pl-5 pr-2 py-1 shadow-lg shadow-purple-500/10 backdrop-blur-sm group hover:border-purple-500/30 transition-all duration-300">
+          <span
+            class="bg-clip-text text-transparent bg-linear-to-r from-purple-300 to-pink-300">
+            Ditt
+          </span>
+          <div class="relative w-10 h-10 md:w-12 md:h-12">
+            <DittoLogo
+              client:visible
+              className="w-full h-full group-hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+        </span>
       </h2>
       <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
         Experiencia Móvil <br />
@@ -157,7 +176,9 @@ import ChecklistDemoPhone from "./ChecklistDemoPhone.jsx";
         </div>
       </div>
 
-      <DemoInfoChart client:visible />
+      <div class="hidden lg:block">
+        <DemoInfoChart client:visible />
+      </div>
     </div>
 
     <!-- PHONE SECTION (Kept as React Island) -->
@@ -219,5 +240,8 @@ import ChecklistDemoPhone from "./ChecklistDemoPhone.jsx";
         </div>
       </div>
     </ChecklistDemoPhone>
+
+    <!-- Mobile Only Pills positioned under the phone -->
+    <DemoPills className="lg:hidden w-full mt-8" client:visible />
   </div>
 </section>
