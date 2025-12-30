@@ -98,7 +98,7 @@ export default function PricingSection() {
 
       <div className="w-full max-w-[95%] xl:max-w-[1700px] mx-auto px-6">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
           <h2 className="text-emerald-400 font-semibold tracking-wide uppercase text-sm mb-3">
             Precios Transparentes
           </h2>
@@ -146,62 +146,69 @@ export default function PricingSection() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative p-8 rounded-3xl backdrop-blur-xl border transition-all duration-300 hover:-translate-y-2 flex flex-col h-full ${
-                plan.popular
-                  ? "bg-slate-800/40 border-blue-500/50 shadow-2xl shadow-blue-900/20 z-10 scale-105 md:-mt-4"
-                  : "bg-slate-900/40 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60"
-              }`}>
-              {plan.badge && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-linear-to-r from-blue-500 to-emerald-500 rounded-full text-xs font-bold text-white shadow-lg uppercase tracking-wider">
-                  {plan.badge}
+              style={{
+                animationDelay: `${index * 150}ms`,
+                animationFillMode: "both",
+              }}
+              className="h-full animate-in fade-in slide-in-from-bottom-8 duration-700">
+              <div
+                className={`relative p-8 rounded-3xl backdrop-blur-xl border transition-all duration-300 hover:-translate-y-2 flex flex-col h-full ${
+                  plan.popular
+                    ? "bg-slate-800/40 border-blue-500/50 shadow-2xl shadow-blue-900/20 z-10 scale-105 md:-mt-4"
+                    : "bg-slate-900/40 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60"
+                }`}>
+                {plan.badge && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-linear-to-r from-blue-500 to-emerald-500 rounded-full text-xs font-bold text-white shadow-lg uppercase tracking-wider">
+                    {plan.badge}
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <h4 className="text-xl font-bold text-white mb-2">
+                    {plan.name}
+                  </h4>
+                  <p className="text-slate-400 text-sm h-10">
+                    {plan.description}
+                  </p>
                 </div>
-              )}
 
-              <div className="mb-6">
-                <h4 className="text-xl font-bold text-white mb-2">
-                  {plan.name}
-                </h4>
-                <p className="text-slate-400 text-sm h-10">
-                  {plan.description}
-                </p>
-              </div>
+                <div className="mb-8 flex items-end gap-1">
+                  <span className="text-4xl font-bold text-white transition-all duration-500">
+                    {plan.currency ? plan.currency : ""} {plan.price}
+                  </span>
+                  <span className="text-slate-500 mb-1">{plan.period}</span>
+                </div>
 
-              <div className="mb-8 flex items-end gap-1">
-                <span className="text-4xl font-bold text-white transition-all duration-500">
-                  {plan.currency ? plan.currency : ""} {plan.price}
-                </span>
-                <span className="text-slate-500 mb-1">{plan.period}</span>
-              </div>
+                <button
+                  className={`w-full py-3 rounded-xl font-bold transition-all mb-8 ${plan.buttonColor}`}>
+                  {plan.buttonText}
+                </button>
 
-              <button
-                className={`w-full py-3 rounded-xl font-bold transition-all mb-8 ${plan.buttonColor}`}>
-                {plan.buttonText}
-              </button>
+                <div className="space-y-4">
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                    Incluye:
+                  </p>
+                  {plan.features.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 text-slate-300 text-sm">
+                      <CheckCircle2
+                        size={18}
+                        className="text-emerald-400 shrink-0 mt-0.5"
+                      />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
 
-              <div className="space-y-4">
-                <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                  Incluye:
-                </p>
-                {plan.features.map((feature, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 text-slate-300 text-sm">
-                    <CheckCircle2
-                      size={18}
-                      className="text-emerald-400 shrink-0 mt-0.5"
-                    />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-
-                {plan.notIncluded.map((feature, i) => (
-                  <div
-                    key={i}
-                    className="flex items-start gap-3 text-slate-600 text-sm">
-                    <XCircle size={18} className="shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
+                  {plan.notIncluded.map((feature, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 text-slate-600 text-sm">
+                      <XCircle size={18} className="shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

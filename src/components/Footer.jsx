@@ -4,7 +4,6 @@ import {
   Instagram,
   Linkedin,
   Mail,
-  MapPin,
   Phone,
 } from "lucide-react";
 
@@ -68,14 +67,6 @@ export const Footer = () => {
           <div>
             <h3 className="text-white font-bold mb-4">Contacto</h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <MapPin size={18} className="shrink-0 text-blue-500" />
-                <span>
-                  Av. Providencia 1234, Of 601
-                  <br />
-                  Santiago, Chile
-                </span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="shrink-0 text-blue-500" />
                 <span>+56 9 1234 5678</span>

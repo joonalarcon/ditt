@@ -1,5 +1,6 @@
 import React from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Send } from "lucide-react";
+import ContactAppPhone from "./ContactAppPhone";
 
 export default function ContactSection() {
   return (
@@ -8,7 +9,7 @@ export default function ContactSection() {
       <div className="absolute top-0 right-1/2 translate-x-1/2 w-full h-[500px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
       <div className="w-full max-w-[95%] xl:max-w-[1700px] mx-auto px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
           <h2 className="text-emerald-400 font-semibold tracking-wide uppercase text-sm mb-3">
             Hablemos
           </h2>
@@ -24,58 +25,13 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start max-w-6xl mx-auto">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700">
-              <h4 className="text-2xl font-bold text-white mb-6">
-                Información de Contacto
-              </h4>
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 text-slate-300">
-                  <div className="p-3 bg-blue-500/20 rounded-xl text-blue-400 shrink-0">
-                    <Mail size={24} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-500 uppercase mb-1">
-                      Email
-                    </p>
-                    <p className="text-lg">contacto@ditt.cl</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 text-slate-300">
-                  <div className="p-3 bg-emerald-500/20 rounded-xl text-emerald-400 shrink-0">
-                    <Phone size={24} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-500 uppercase mb-1">
-                      Teléfono / WhatsApp
-                    </p>
-                    <p className="text-lg">+56 9 1234 5678</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 text-slate-300">
-                  <div className="p-3 bg-purple-500/20 rounded-xl text-purple-400 shrink-0">
-                    <MapPin size={24} />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-slate-500 uppercase mb-1">
-                      Oficina
-                    </p>
-                    <p className="text-lg">
-                      Av. Providencia 1234, Of. 601
-                      <br />
-                      Santiago, Chile
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto">
+          {/* Contact Phone (Left) */}
+          <div className="flex justify-center">
+            <ContactAppPhone />
           </div>
 
-          {/* Form */}
+          {/* Form (Right) */}
           <div className="bg-slate-800/30 p-8 rounded-3xl border border-slate-700 backdrop-blur-sm">
             <form className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">

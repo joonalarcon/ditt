@@ -30,7 +30,7 @@ export const Navbar = () => {
     logoText: "text-2xl font-bold ml-1 text-white tracking-tight", // Adjusted ml-1
     navTabsDesktop: "hidden md:flex items-center gap-8 pr-4",
     navTab:
-      "text-slate-300 hover:text-white font-medium transition-all hover:scale-105 flex items-center gap-2 text-sm uppercase tracking-wide",
+      "text-slate-300 hover:text-white font-medium transition-all hover:scale-105 flex items-center gap-2 text-sm tracking-wide",
     navButtonPrice:
       "flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white p-2.5 px-6 rounded-full font-bold transition-all duration-300 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 hover:scale-105",
     iconSize: 18, // Tamaño de los iconos
@@ -92,7 +92,7 @@ export const Navbar = () => {
             className={constants.navTab}
             onClick={() => setIsOpen(false)}>
             <Icons.Users size={constants.iconSize} />
-            Sobre Nosotros
+            Nosotros
           </a>
           <a
             href={`${baseUrl}contacto/`}
