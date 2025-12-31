@@ -5,7 +5,7 @@ import LogoDittReact from "../interfaz/LogoDittReact";
 /**
  * Reused Phone Shell from ChecklistDemoPhone to ensure 1:1 visual match.
  */
-export default function ContactAppPhone() {
+export default function ContactAppPhone({ children }) {
   const [clickedApp, setClickedApp] = useState(null);
 
   const apps = [
@@ -81,6 +81,7 @@ export default function ContactAppPhone() {
 
   return (
     <div className="w-full relative z-10 flex justify-center">
+      {children}
       {/* Phone Border - EXACT COPY OF CHECKLISTDEMOPHONE */}
       <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-14 rounded-[2.5rem] h-[650px] md:h-[800px] w-full max-w-[360px] md:max-w-[400px] shadow-2xl flex flex-col shadow-blue-500/20 z-20">
         {/* Screen */}
