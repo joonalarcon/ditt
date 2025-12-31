@@ -12,7 +12,7 @@ export const ChecklistInputInstruction = ({
     <div className={`mb-4 ${isGrouped ? "px-2" : ""}`}>
       <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-lg shadow-sm">
         <div className="flex items-start">
-          <div className="flex-shrink-0">
+          <div className="shrink-0">
             {Icon ? (
               <Icon className="h-5 w-5 text-blue-500" />
             ) : (
