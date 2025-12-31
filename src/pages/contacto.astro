@@ -1,8 +1,162 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ContactSection from "../components/ContactSection.jsx";
+import { Send, Clock, MonitorPlay, Users, MapPin } from "lucide-react";
+import ContactAppPhone from "../components/contacto/TelefonoAppContacto.jsx";
 ---
 
 <Layout title="Contacto Ditt">
-  <ContactSection client:load />
+  <section
+    class="py-8 md:py-24 bg-slate-900 relative overflow-hidden min-h-screen">
+    {/* Background Blobs */}
+    <div
+      class="absolute top-0 right-1/2 translate-x-1/2 w-full h-[500px] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none -z-10">
+    </div>
+
+    <div class="w-full max-w-[95%] xl:max-w-[1700px] mx-auto px-6">
+      <div
+        class="text-center max-w-3xl mx-auto mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
+        <h2
+          class="text-emerald-400 font-semibold tracking-wide uppercase text-sm mb-3">
+          Hablemos
+        </h2>
+        <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          Empieza a <br />
+          <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-emerald-400">
+            digitalizar tu operación
+          </span>
+        </h3>
+        <p class="text-slate-400 text-lg">
+          ¿Tienes dudas sobre los planes o necesitas una solución a medida?
+          Nuestro equipo está listo para ayudarte.
+        </p>
+      </div>
+
+      <div
+        class="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto">
+        {/* Telefono de contacto */}
+        <div class="flex justify-center">
+          <ContactAppPhone client:visible />
+        </div>
+
+        {/* Form (Right) */}
+        <div
+          class="bg-slate-800/30 p-8 rounded-3xl border border-slate-700 backdrop-blur-sm">
+          <div class="mb-8">
+            <h4 class="text-2xl font-bold text-white mb-2">
+              Envíanos un mensaje
+            </h4>
+            <p class="text-slate-400 text-sm">
+              Completa el formulario y te responderemos a la brevedad.
+            </p>
+          </div>
+          <form class="space-y-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-sm font-bold text-slate-400 ml-1">
+                  Nombre
+                </label>
+                <input
+                  type="text"
+                  class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-hidden focus:border-blue-500 transition-colors"
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div class="space-y-2">
+                <label class="text-sm font-bold text-slate-400 ml-1">
+                  Empresa
+                </label>
+                <input
+                  type="text"
+                  class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-hidden focus:border-blue-500 transition-colors"
+                  placeholder="Nombre de tu empresa"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-slate-400 ml-1">
+                Email Corporativo
+              </label>
+              <input
+                type="email"
+                class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-hidden focus:border-blue-500 transition-colors"
+                placeholder="ejemplo@empresa.com"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-slate-400 ml-1">
+                Mensaje
+              </label>
+              <textarea
+                class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-hidden focus:border-blue-500 transition-colors h-32 resize-none"
+                placeholder="Cuéntanos sobre tu operación..."></textarea>
+            </div>
+
+            <button
+              aria-label="Enviar Mensaje"
+              class="w-full bg-linear-to-r from-blue-600 to-emerald-600 hover:from-blue-500 hover:to-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all hover:scale-[1.02]">
+              <Send size={20} />
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Compromisos Section -->
+      <div class="mt-24 md:mt-32 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div
+          class="p-8 bg-slate-800/20 border border-slate-700/50 rounded-3xl hover:border-blue-500/30 transition-all group overflow-hidden relative">
+          <div
+            class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 mb-6 group-hover:scale-110 transition-transform">
+            <Clock size={24} />
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Respuesta Veloz</h4>
+          <p class="text-slate-400">
+            Valoramos tu tiempo. Te contactamos en menos de 24 horas hábiles
+            para avanzar con tu requerimiento.
+          </p>
+        </div>
+
+        <div
+          class="p-8 bg-slate-800/20 border border-slate-700/50 rounded-3xl hover:border-emerald-500/30 transition-all group overflow-hidden relative">
+          <div
+            class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+            <MonitorPlay size={24} />
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Demo Personalizada</h4>
+          <p class="text-slate-400">
+            Agendamos una sesión guiada para que veas Ditt en acción con tus
+            propios procesos y checklists.
+          </p>
+        </div>
+
+        <div
+          class="p-8 bg-slate-800/20 border border-slate-700/50 rounded-3xl hover:border-purple-500/30 transition-all group overflow-hidden relative">
+          <div
+            class="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+            <Users size={24} />
+          </div>
+          <h4 class="text-xl font-bold text-white mb-3">Soporte Humano</h4>
+          <p class="text-slate-400">
+            Atención personalizada por expertos en digitalización. Sin bots
+            complicados ni laberintos telefónicos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Presencia Section -->
+      <div class="mt-20 text-center pb-20">
+        <div
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-800/50 border border-slate-700/50 text-slate-300">
+          <MapPin size={18} className="text-rose-500" />
+          <span class="text-sm md:text-base font-medium">
+            Operando desde <strong class="text-white">Santiago</strong> para toda
+            <strong class="text-white">Latinoamérica</strong>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

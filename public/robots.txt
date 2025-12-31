@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://joonalarcon.github.io/ditt/sitemap-index.xml

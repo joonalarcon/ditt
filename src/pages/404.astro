@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { DittoLogo } from "../components/ui/DittoLogo.jsx";
+import DittoLogo from "../components/interfaz/LogoDitt.astro";
 
 const baseUrl = import.meta.env.BASE_URL;
 ---
@@ -8,12 +8,11 @@ const baseUrl = import.meta.env.BASE_URL;
 <Layout title="404: Página no encontrada">
   <main
     class="flex flex-col items-center justify-center min-h-[70vh] text-center px-4 relative overflow-hidden">
-    <div
-      class="relative w-80 h-80 md:w-96 md:h-96 mx-auto mb-6 flex items-center justify-center group cursor-pointer">
-      {/* Massive Ditto */}
+    <a
+      href={baseUrl}
+      class="relative w-80 h-80 md:w-96 md:h-96 mx-auto mb-6 flex items-center justify-center group cursor-pointer hover:scale-105 transition-transform duration-300">
       {/* Massive Ditto */}
       <DittoLogo
-        client:visible
         className="w-full h-full"
         color="bg-purple-600 shadow-[0_0_50px_rgba(147,51,234,0.3)]"
         showFace={false}
@@ -23,7 +22,7 @@ const baseUrl = import.meta.env.BASE_URL;
       <div
         class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
         <h1
-          class="text-[8rem] md:text-[10rem] font-black text-white/90 tracking-tighter rotate-[-5deg] animate-pulse drop-shadow-xl">
+          class="text-[8rem] md:text-[10rem] font-black text-white/90 tracking-tighter rotate-[-5deg] animate-pulse drop-shadow-xl text-shadow-lg">
           404
         </h1>
       </div>
@@ -37,13 +36,13 @@ const baseUrl = import.meta.env.BASE_URL;
         class="absolute -bottom-5 -left-10 text-4xl font-bold text-slate-700 animate-[bounce_4s_infinite] opacity-30">
         ?
       </div>
-    </div>
+    </a>
 
     <p class="text-3xl font-bold text-white mb-4 relative z-10">
       ¡Esta página no existe!
     </p>
     <p class="text-slate-400 max-w-md mb-10">
-      Parece que lo que buscas no existe o fue movido. No te preocupes, Ditto te
+      Parece que lo que buscas no existe o fue movido. No te preocupes, Ditt te
       ayuda a volver.
     </p>
 

@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
-import { Navbar } from "../components/Navbar.jsx";
-import { Footer } from "../components/Footer.jsx";
+import Navbar from "../components/comunes/BarraNavegacion.astro";
+import Footer from "../components/comunes/PieDePagina.astro";
 
 import { ViewTransitions } from "astro:transitions";
 
@@ -17,16 +17,20 @@ const { title = "Checklist App" } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/ditt/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Ditt: Plataforma integral para digitalizar operaciones en terreno. Controla checklists, tareas y equipos en tiempo real."
+    />
     <title>{title}</title>
     <ViewTransitions />
   </head>
   <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
-    <Navbar client:load />
+    <Navbar />
     <main class="grow">
       <slot />
     </main>
-    <Footer client:visible />
+    <Footer />
   </body>
 </html>

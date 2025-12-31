@@ -1,5 +1,5 @@
 export const DemoChecklistsData = {
-  "Checklist Vehicular": [
+  Vehicular: [
     {
       type: "ChecklistInputIDScanner",
       title: "Cédula Conductor",
@@ -60,45 +60,8 @@ export const DemoChecklistsData = {
       icon: "Feather",
     },
   ],
-  "Checklist Personal  ": [
-    { type: "ChecklistSectionTitle", title: "Charla Prevención" },
-    {
-      type: "ChecklistInputDate",
-      title: "Inicio de Reunión",
-      subtitle: "Registro automático",
-      icon: "Calendar",
-    },
-    {
-      type: "ChecklistInputTeamPicker",
-      title: "Asistencia",
-      subtitle: "Seleccionar personal presente",
-    },
-    {
-      type: "ChecklistInputInstruction",
-      title: "Tema del Día",
-      content:
-        "Hoy conversaremos sobre el uso correcto de arnés en altura y puntos de anclaje.",
-    },
-    {
-      type: "ChecklistInputPhoto",
-      title: "Evidencia Grupal",
-      subtitle: "Foto de la charla",
-      icon: "Camera",
-    },
-    {
-      type: "ChecklistInputAudio",
-      title: "Preguntas / Dudas",
-      subtitle: "Grabar consultas del equipo",
-      icon: "Mic",
-    },
-    {
-      type: "ChecklistInputSignature",
-      title: "Visto Bueno",
-      subtitle: "Supervisor a cargo",
-      icon: "Feather",
-    },
-  ],
-  "Checklist de Seguridad": [
+
+  Seguridad: [
     {
       type: "ChecklistInputSelect",
       title: "Punto de Control",
@@ -139,7 +102,7 @@ export const DemoChecklistsData = {
       value: "autorizado",
     },
   ],
-  "Checklist de Obra": [
+  Construcción: [
     {
       type: "ChecklistInputSelect",
       title: "Sector de Trabajo",
@@ -181,7 +144,7 @@ export const DemoChecklistsData = {
       icon: "Feather",
     },
   ],
-  "Checklist de Mantenimiento": [
+  Mantenimiento: [
     {
       type: "ChecklistInputDate",
       title: "Hora Inicio",
@@ -272,7 +235,7 @@ export const DemoChecklistsData = {
       icon: "Feather",
     },
   ],
-  "Computador Servicio Técnico": [
+  "Servicio Técnico": [
     {
       type: "ChecklistInputText",
       title: "Serie / Activo",
