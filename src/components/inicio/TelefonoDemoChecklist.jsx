@@ -159,7 +159,7 @@ export default function ChecklistDemoPhone({ children }) {
   };
 
   return (
-    <div className="lg:w-1/3 relative z-10 -mt-8 lg:mt-20">
+    <div className="w-full relative z-10">
       <div className="flex justify-center mb-4 relative z-50 px-4 w-full">
         <div className="relative w-full max-w-[320px]">
           <button
@@ -180,19 +180,17 @@ export default function ChecklistDemoPhone({ children }) {
             </span>
             <ChevronDown
               size={20}
-              className={`text-cyan-300 drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] transition-transform duration-300 relative z-10 ${
-                isDropdownOpen ? "rotate-180" : ""
-              }`}
+              className={`text-cyan-300 drop-shadow-[0_0_5px_rgba(34,211,238,0.8)] transition-transform duration-300 relative z-10 ${isDropdownOpen ? "rotate-180" : ""
+                }`}
             />
           </button>
 
           {/* Dropdown Menu */}
           <div
-            className={`absolute top-full left-0 right-0 mt-3 bg-slate-900/95 backdrop-blur-xl border border-blue-500/30 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-300 origin-top z-60 ${
-              isDropdownOpen
+            className={`absolute top-full left-0 right-0 mt-3 bg-slate-900/95 backdrop-blur-xl border border-blue-500/30 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden transition-all duration-300 origin-top z-60 ${isDropdownOpen
                 ? "opacity-100 translate-y-0 scale-100"
                 : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
-            }`}>
+              }`}>
             {Object.keys(DemoChecklistsData).map((option) => (
               <button
                 key={option}
@@ -201,21 +199,18 @@ export default function ChecklistDemoPhone({ children }) {
                   setIsDropdownOpen(false);
                   setFormData({});
                 }}
-                className={`w-full text-left px-6 py-4 text-sm font-bold transition-all items-center gap-3 cursor-pointer relative group ${
-                  option === "Mantenimiento" || option === "Checklist EPP"
+                className={`w-full text-left px-6 py-4 text-sm font-bold transition-all items-center gap-3 cursor-pointer relative group ${option === "Mantenimiento" || option === "Checklist EPP"
                     ? "hidden lg:flex"
                     : "flex"
-                } ${
-                  currentOption === option
+                  } ${currentOption === option
                     ? "text-cyan-300 bg-blue-500/10"
                     : "text-slate-400 hover:text-white hover:bg-slate-800/80"
-                }`}>
+                  }`}>
                 <div
-                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                    currentOption === option
+                  className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${currentOption === option
                       ? "bg-cyan-400 shadow-[0_0_8px_cyan]"
                       : "bg-slate-600 group-hover:bg-cyan-200"
-                  }`}></div>
+                    }`}></div>
                 {option}
               </button>
             ))}
@@ -368,11 +363,10 @@ export default function ChecklistDemoPhone({ children }) {
           {/* Success Overlay */}
           {isFinished && (
             <div
-              className={`absolute inset-0 z-50 bg-green-500 flex flex-col items-center justify-center text-white ${
-                isClosing
+              className={`absolute inset-0 z-50 bg-green-500 flex flex-col items-center justify-center text-white ${isClosing
                   ? "animate-[epicOverlayOut_0.5s_forwards]"
                   : "animate-[epicOverlayIn_0.5s_cubic-bezier(0.175,0.885,0.32,1.275)_forwards]"
-              }`}>
+                }`}>
               <div className="bg-white/20 p-6 rounded-full mb-6 animate-bounce">
                 <CheckCircle2 size={64} strokeWidth={3} />
               </div>

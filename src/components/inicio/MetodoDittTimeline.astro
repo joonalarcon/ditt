@@ -1,0 +1,211 @@
+---
+import { UploadCloud, Smartphone, TrendingUp, Zap, Rocket } from "lucide-react";
+import DittoLogo from "../interfaz/LogoDitt.astro";
+
+const steps = [
+    {
+        id: "01",
+        title: "Digitalizar",
+        description:
+            "Transformamos el caos físico en orden digital. Tus formularios de papel evolucionan a estructuras de datos inteligentes en la nube.",
+        icon: UploadCloud,
+        color: "blue",
+    },
+    {
+        id: "02",
+        title: "Desplegar",
+        description:
+            "Distribución instantánea a toda tu flota. Sin instalaciones complejas. Tu operación se actualiza en los teléfonos de tu equipo en segundos.",
+        icon: Smartphone,
+        color: "emerald",
+    },
+    {
+        id: "03",
+        title: "Automatizar",
+        description:
+            "Ditt trabaja por ti. Configura alertas automáticas, correos y disparadores que reaccionan en tiempo real a lo que ocurre en terreno.",
+        icon: Zap,
+        color: "amber",
+    },
+    {
+        id: "04",
+        title: "Analizar",
+        description:
+            "Convierte datos brutos en decisiones visuales. Tableros de control que te dan la 'visión de dios' sobre cada aspecto de tu negocio.",
+        icon: TrendingUp,
+        color: "purple",
+    },
+    {
+        id: "05",
+        title: "Evolucionar",
+        description:
+            "El ciclo virtuoso. Con datos históricos y predicciones, detecta cuellos de botella y optimiza tu operación continuamente.",
+        icon: Rocket,
+        color: "rose",
+    },
+];
+---
+
+<section class="py-32 bg-slate-900 relative overflow-hidden" id="metodo-ditt">
+    <!-- Background Ambient Glow -->
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl opacity-20 pointer-events-none"
+    >
+        <div
+            class="absolute inset-0 bg-gradient-to-tr from-blue-500/30 via-amber-500/20 to-rose-500/30 blur-[100px]"
+        >
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-24">
+            <h2
+                class="text-5xl md:text-7xl font-black text-white tracking-tight mb-6"
+            >
+                EL MÉTODO <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-rose-400"
+                    >DITT</span
+                >
+            </h2>
+            <p class="text-slate-400 text-xl max-w-2xl mx-auto">
+                Evolución operativa en cinco fases sincronizadas.
+            </p>
+        </div>
+
+        <div class="relative max-w-5xl mx-auto">
+            <!-- Central Line Container -->
+            <div
+                class="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 md:-translate-x-1/2 z-0 hidden md:block"
+            >
+                <!-- Base Line -->
+                <div class="w-full h-full bg-slate-800 rounded-full"></div>
+                <!-- Progress Line (Animated via JS) -->
+                <div
+                    id="timeline-progress"
+                    class="absolute top-0 w-full bg-gradient-to-b from-blue-500 via-emerald-500 via-amber-500 via-purple-500 to-rose-500 rounded-full transition-all duration-100 ease-out"
+                    style="height: 0%"
+                >
+                    <!-- Animated Ditto Head guiding the way -->
+                    <div
+                        class="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12 bg-slate-900 rounded-full border-2 border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] z-20 flex items-center justify-center translate-y-1/2"
+                    >
+                        <div class="w-8 h-8">
+                            <DittoLogo className="w-full h-full" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-24 md:space-y-32">
+                {
+                    steps.map((step, index) => (
+                        <div
+                            class={`timeline-step relative flex flex-col md:flex-row gap-8 md:gap-0 items-center ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+                        >
+                            {/* Content Card */}
+                            <div
+                                class={`w-full md:w-5/12 ${index % 2 === 0 ? "md:text-right" : "md:text-left"} relative group`}
+                            >
+                                <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-30 transition duration-1000 group-hover:duration-200" />
+                                <div class="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-slate-700/50 hover:border-slate-500/50 transition-colors shadow-2xl">
+                                    <div
+                                        class={`text-6xl font-black text-slate-800 absolute -top-10 ${index % 2 === 0 ? "right-4" : "left-4"} select-none z-0`}
+                                    >
+                                        {step.id}
+                                    </div>
+                                    <h3 class="text-3xl font-bold text-white mb-4 relative z-10">
+                                        {step.title}
+                                    </h3>
+                                    <p class="text-slate-400 text-lg leading-relaxed relative z-10">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Center Node */}
+                            <div class="w-full md:w-2/12 flex justify-center relative py-4 md:py-0">
+                                <div class="relative w-20 h-20 flex items-center justify-center bg-slate-900 rounded-full border-4 border-slate-800 z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] group">
+                                    {/* Pulsing rings */}
+                                    <div
+                                        class={`absolute inset-0 rounded-full animate-ping opacity-20 bg-${step.color}-500/50`}
+                                    />
+                                    <div
+                                        class={`absolute -inset-1 rounded-full opacity-20 bg-${step.color}-500 blur-md`}
+                                    />
+
+                                    {/* Icon */}
+                                    <step.icon
+                                        className={`w-8 h-8 text-${step.color}-400 relative z-10 transform group-hover:scale-110 transition-transform duration-300`}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Empty Space for Grid Layout */}
+                            <div class="w-full md:w-5/12" />
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Scroll Progress Logic
+    const timelineSection = document.getElementById("metodo-ditt");
+    const progressBar = document.getElementById("timeline-progress");
+    const steps = document.querySelectorAll(".timeline-step");
+
+    if (timelineSection && progressBar) {
+        window.addEventListener("scroll", () => {
+            const sectionRect = timelineSection.getBoundingClientRect();
+            const start = sectionRect.top;
+            const height = sectionRect.height;
+            const windowHeight = window.innerHeight;
+
+            // Calculate percentage of section scrolled
+            let percentage = ((windowHeight / 2 - start) / height) * 100;
+
+            // Clamp value
+            percentage = Math.max(0, Math.min(100, percentage));
+
+            progressBar.style.height = `${percentage}%`;
+
+            // Reveal Animation for steps
+            steps.forEach((step) => {
+                const rect = step.getBoundingClientRect();
+                if (rect.top < windowHeight * 0.8) {
+                    step.classList.add("opacity-100", "translate-y-0");
+                    step.classList.remove("opacity-0", "translate-y-20");
+                }
+            });
+        });
+    }
+
+    // Initialize Intersection Observer for cleaner reveals if JS loads late
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("opacity-100", "translate-y-0");
+                    entry.target.classList.remove(
+                        "opacity-0",
+                        "translate-y-20",
+                    );
+                }
+            });
+        },
+        { threshold: 0.2 },
+    );
+
+    steps.forEach((step) => {
+        step.classList.add(
+            "transition-all",
+            "duration-1000",
+            "ease-out",
+            "opacity-0",
+            "translate-y-20",
+        ); // Initial state
+        observer.observe(step);
+    });
+</script>

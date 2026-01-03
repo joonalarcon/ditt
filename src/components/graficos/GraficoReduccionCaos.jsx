@@ -15,9 +15,9 @@ export default function ChaosReductionChart() {
   // Generate data: Chaos starts high and trends down smoothly (Sustained reduction)
   const data = Array.from({ length: 24 }, (_, i) => {
     // Smooth, sustained decline.
-    // Starts at ~90, drops effectively to ~10-15.
-    // Formula: 15 + 75 * e^(-0.2 * i)
-    const baseValue = 15 + 75 * Math.exp(-0.2 * i);
+    // Starts at ~90, drops effectively to ~35-40 (60% reduction).
+    // Formula: 36 + 54 * e^(-0.2 * i)
+    const baseValue = 36 + 54 * Math.exp(-0.2 * i);
 
     // Very low volatility, indicating stability and trust
     const randomFlux = Math.sin(i * 0.5) * 2 + (Math.random() * 4 - 2);
@@ -31,12 +31,12 @@ export default function ChaosReductionChart() {
   });
 
   return (
-    <div className="bg-slate-800/40 backdrop-blur-md rounded-2xl border border-white/5 p-6 shadow-xl relative overflow-hidden h-full w-full max-w-4xl mx-auto">
+    <div className="bg-slate-800/40 backdrop-blur-md rounded-2xl border border-white/5 p-4 md:p-6 shadow-xl relative overflow-hidden h-full w-full max-w-4xl mx-auto">
       <SectionTitle title="Eliminación del Caos Operativo" icon={Activity} />
       <p className="text-slate-400 text-sm mb-4">
         Impacto directo en la reducción de procesos manuales y burocracia.
       </p>
-      <div className="h-80 w-full">
+      <div className="h-64 md:h-80 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
             <defs>
@@ -97,7 +97,7 @@ export default function ChaosReductionChart() {
       {/* Explanation Annotation */}
       <div className="absolute top-1/2 right-10 hidden md:block max-w-[200px] text-right pointer-events-none">
         <div className="text-emerald-400 font-bold text-xl mb-1 flex items-center justify-end gap-2">
-          <span>-80%</span>
+          <span>-60%</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
