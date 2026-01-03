@@ -5,8 +5,7 @@ import { MdOutlineContactPhone } from "react-icons/md";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 import DittoLogo from "../interfaz/LogoDitt.astro";
 
-const baseUrl = import.meta.env.BASE_URL;
-
+const baseUrl = import.meta.env.BASE_URL || "/";
 // Constante de clases de Tailwind
 const constants = {
   nav: "sticky top-0 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 z-50 transition-all",
@@ -38,7 +37,7 @@ const constants = {
         <p class="text-lg">Inicio</p>
       </a>
       <a
-        href={`${baseUrl}nosotros/`}
+        href={`${baseUrl}nosotros`}
         class={constants.navTab}
         aria-label="Ir a Nosotros"
       >
@@ -46,7 +45,7 @@ const constants = {
         <p class="text-lg">Nosotros</p>
       </a>
       <a
-        href={`${baseUrl}contacto/`}
+        href={`${baseUrl}contacto`}
         class={constants.navTab}
         aria-label="Ir a Contacto"
       >
@@ -54,7 +53,7 @@ const constants = {
         <p class="text-lg">Contacto</p>
       </a>
       <a
-        href={`${baseUrl}precios/`}
+        href={`${baseUrl}precios`}
         class={constants.navButtonPrice}
         aria-label="Ir a Precios"
       >
@@ -93,7 +92,7 @@ const constants = {
       Inicio
     </a>
     <a
-      href={`${baseUrl}nosotros/`}
+      href={`${baseUrl}nosotros`}
       class={constants.navTab}
       data-nav-link
       aria-label="Ir a Nosotros"
@@ -102,7 +101,7 @@ const constants = {
       Nosotros
     </a>
     <a
-      href={`${baseUrl}contacto/`}
+      href={`${baseUrl}contacto`}
       class={constants.navTab}
       data-nav-link
       aria-label="Ir a Contacto"
@@ -111,7 +110,7 @@ const constants = {
       Contacto
     </a>
     <a
-      href={`${baseUrl}precios/`}
+      href={`${baseUrl}precios`}
       class={constants.navButtonPrice}
       data-nav-link
       aria-label="Ir a Precios"
